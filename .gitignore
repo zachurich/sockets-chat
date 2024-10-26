@@ -1,2 +1,8 @@
 server/venv
 ui/node_modules
+ui/.env
+*.pem
+*.sh
+# Local Netlify folder
+.netlify
+*.sql

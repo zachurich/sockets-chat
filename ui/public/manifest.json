@@ -1,0 +1,14 @@
+{
+  "name": "Tiny Chat",
+  "short_name": "Tiny Chat",
+  "display": "standalone",
+  "description": "A Tiny chat client",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

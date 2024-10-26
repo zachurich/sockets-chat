@@ -1,0 +1,19 @@
+{
+  "pylint.args": [
+    "--disable=C0114",
+    "--disable=C0115",
+    "--disable=C0116",
+    "--disable=W0718"
+  ],
+  "pylint.path": ["server/venv/bin/pylint"],
+  "python.defaultInterpreterPath": "server/venv/bin/python",
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:sockets-chat}/server/sockets-chat.db",
+      "name": "Chat DB"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

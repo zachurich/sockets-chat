@@ -1,16 +1,61 @@
 :root {
+  --colorScheme: dark;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 16px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --corners: 0.3rem;
+  --buttonTextColor: white;
+  --chatHeight: 100%;
+  --chatWindowHeight: calc(100vh - 42px - 85px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colorScheme: dark;
+    --backgroundColor: #242424;
+    --messageColor: rgba(255, 255, 255, 0.133);
+    --messageContainerColor: white;
+    --inputColor: #383838;
+    --buttonColor: #567bf3;
+    --borderColor: rgba(255, 255, 255, 0.161);
+    --alertColor: #f52248;
+    --nameColor: #567bf3;
+    --shadowColor: rgb(0, 0, 0);
+
+    color: white;
+    background-color: var(--backgroundColor);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --colorScheme: light;
+    --backgroundColor: #ffffff;
+    --messageColor: rgba(0, 0, 0, 0.076);
+    --messageContainerColor: white;
+    --inputColor: #ddd;
+    --buttonColor: #567bf3;
+    /* --buttonColor: #6d2f62; */
+    --borderColor: rgba(0, 0, 0, 0.184);
+    --alertColor: #f52248;
+    --nameColor: #567bf3;
+    --alertColor: #f52248;
+    --shadowColor: rgba(0, 0, 0, 0.2);
+
+    color: black;
+    background-color: var(--backgroundColor);
+  }
 }
 
 a {
@@ -25,21 +70,27 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: start;
   min-width: 320px;
   min-height: 100vh;
 }
 
+main {
+  width: 100%;
+  height: 100%;
+}
+
 h1 {
-  font-size: 3.2em;
+  font-size: 1.2rem;
   line-height: 1.1;
+  margin: 0;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.6em 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -54,15 +105,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  background-color: var(--inputColor);
+  font-size: 1rem;
 }

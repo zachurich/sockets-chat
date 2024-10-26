@@ -1,0 +1,216 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.root header {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--borderColor);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0px -17px 37px 5px var(--shadowColor);
+}
+
+.container {
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.root header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  height: var(--chatWindowHeight);
+  overflow: auto;
+}
+
+.wrapper > .container {
+  height: var(--chatWindowHeight);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.chatContainer {
+  padding: 0px 20px;
+  border-radius: var(--corners);
+  height: var(--chatWindowHeight);
+}
+
+.messageContainer {
+  margin-bottom: 20px;
+  border-radius: var(--corners);
+  overflow-x: auto;
+  overflow-y: scroll;
+  height: var(--chatHeight);
+  max-height: var(--chatHeight);
+  display: flex;
+  flex-direction: column;
+}
+
+.messageContainer * {
+  overflow-anchor: none;
+}
+
+.messageContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.message {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-bottom: 10px;
+  animation: slideIn 0.8s cubic-bezier(0.58, 0.01, 0.1, 0.98) 0.1s forwards;
+}
+
+.message:first-of-type {
+  margin-top: 20px;
+}
+
+.message:last-of-type {
+  margin-bottom: 20px;
+}
+
+.messageHeader {
+  display: flex;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.messageHeader .name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.messageHeader .time,
+.message .details {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.messageBody {
+  background-color: var(--messageColor);
+  border-radius: var(--corners);
+  padding: 10px 20px;
+}
+
+.messageYou,
+.messageYou .name {
+  align-self: flex-end;
+}
+
+.messageYou .name {
+  color: var(--nameColor);
+}
+
+.message:not(.messageYou) .name {
+  align-self: flex-start;
+}
+
+.message i {
+  background-color: var(--messageColor);
+  border-radius: 0.2rem;
+  padding: 8px 16px;
+}
+
+.messageServer {
+  width: 100%;
+}
+
+.messageServer .name {
+  color: var(--alertColor);
+}
+
+.messageServer .messageBody {
+  font-weight: 600;
+}
+
+.chatBar {
+  /* position: absolute; */
+  width: 100%;
+  display: flex;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--borderColor);
+  box-shadow: 0px 17px 37px 5px var(--shadowColor);
+}
+
+.form input {
+  border-radius: var(--corners);
+  border: 1px solid var(--borderColor);
+  padding: 10px 20px;
+  flex: 1;
+}
+header button,
+.form button {
+  border-radius: var(--corners);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  border: 1px solid var(--borderColor);
+}
+
+.button {
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+}
+
+.buttonLeave {
+  background-color: var(--alertColor);
+}
+
+.buttonDisabled {
+  background-color: #ddd;
+  color: #686868;
+}
+
+.form {
+  display: flex;
+  flex: 1;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.inputAlert {
+  color: var(--alertColor);
+  font-weight: bold;
+  font-style: italic;
+  position: absolute;
+  top: -50px;
+  background-color: var(--backgroundColor);
+  padding: 6px 12px;
+  border-radius: var(--corners);
+  box-shadow: 0px 5px 9px -4px var(--shadowColor);
+  border: 2px solid var(--alertColor);
+  opacity: 0;
+  animation: slideIn 0.5s cubic-bezier(0.58, 0.01, 0.1, 0.98) 0s forwards;
+  left: 0;
+}
