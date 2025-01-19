@@ -67,6 +67,7 @@ function App() {
   const nameRef = useRef("");
 
   const pollRef = useRef(0);
+  const lastMessageRef = useRef<HTMLLIElement>(null);
 
   const _socket = useRef<WebSocket>();
   const messageContainerRef = useRef<HTMLUListElement>(null);
@@ -235,6 +236,8 @@ function App() {
 
   const onSend = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    // scroll last message into view. Solves keyboard jump on mobile
+    lastMessageRef.current?.scrollIntoView();
 
     if (name && chatText) {
       const message: Message = {
@@ -300,6 +303,9 @@ function App() {
               {messages.map((message, index) => (
                 <li
                   key={`${message._id}-${index}`}
+                  ref={
+                    index + 1 === messages.length ? lastMessageRef : undefined
+                  }
                   className={classnames(styles.message, {
                     [styles.messageServer]: message.name === "Server",
                     [styles.messageYou]: message.name === name,

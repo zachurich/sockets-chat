@@ -147,10 +147,11 @@
 }
 
 .chatBar {
-  /* position: absolute; */
+  position: sticky;
   width: 100%;
   display: flex;
   left: 0;
+  right: 0;
   bottom: 0;
   padding: 20px;
   box-sizing: border-box;
@@ -161,7 +162,7 @@
 .form input {
   border-radius: var(--corners);
   border: 1px solid var(--borderColor);
-  padding: 10px 20px;
+  padding: 10px;
   flex: 1;
 }
 header button,
